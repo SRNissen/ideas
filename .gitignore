@@ -11,7 +11,8 @@
 !.editorconfig
 !.clang-format
 !CMakeLists.txt
-
+!*.md
+!*/*.md
 # Specific directories can be toggled back to blacklist by exluding them from
 # this gitignore, and then adding a local .gitignore to that folder
 !folder_name/
