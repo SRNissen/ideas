@@ -1,0 +1,18 @@
+# it is impossible to, in full generality, know every temporary file every
+# editor and build system might create.
+#
+# So we don't even try. This is a whitelist-based gitignore
+
+*
+
+# Repo-wide
+
+!.gitignore
+!.editorconfig
+!.clang-format
+!CMakeLists.txt
+
+# Specific directories can be toggled back to blacklist by exluding them from
+# this gitignore, and then adding a local .gitignore to that folder
+!folder_name/
+!folder_name/.gitignore
