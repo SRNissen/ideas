@@ -1,1 +1,0 @@
-Something like a std::string that only allows ascii characters, or possibly ascii + templating on 8-bit code pages for variations.
