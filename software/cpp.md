@@ -73,7 +73,31 @@ for(auto const& v : ???)
 }
 ```
 
-## Ideas
+## Implementation ideas
 
 - A wrapper for maps that has begin/end which, in turn, iterate over the maps begin/end but a deref gets you value directly instead of the kv pair
 - A wrapper for an *arbitrary container* (useful in generic contexts) that does the metaprogramming to find out whether iterators are a direct passthrough or whether they should return the value
+
+# Extension methods
+
+illegal:
+
+```c++
+bool IsIntegralEven(double a)
+{
+	a.Divide(2.0);
+	return a.IsIntegral();
+}
+```
+
+possibly possible/legal:
+
+```c++
+bool IsIntegralEven(double a)
+{
+	a ^ Do<Divide>(2.0);
+	return a ^ True<IsIntegral>();
+}
+
+Or *something* like that. Expanded upon in [another file](cpp_extension_methods.md)
+```
