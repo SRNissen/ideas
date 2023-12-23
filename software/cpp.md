@@ -98,6 +98,10 @@ bool IsIntegralEven(double a)
 	a ^ Do<Divide>(2.0);
 	return a ^ True<IsIntegral>();
 }
+```
 
 Or *something* like that. Expanded upon in [another file](cpp_extension_methods.md)
-```
+
+# AsBytes
+
+function that takes *any* object by const reference returning an array of bytes exactly equal to those of the object.
