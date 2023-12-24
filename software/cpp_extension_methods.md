@@ -36,6 +36,10 @@ int c = a | Do(f) | Do(g);
 
 Will this compile? Is the precedense right here? ... do I even care if I have to use "Do" to make it happen?
 
+### DEC24-3
+
+Having read up on prior art - am I looking for UFCS, Extension methods, or postfix calls? I think postfix calls - it isn't important to me for generic contexts, it's for doing chained calls.
+
 
 # Some compiled examples
 
