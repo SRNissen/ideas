@@ -7,11 +7,37 @@ Use operator overload shenanigans to make a function carrier (Monad...?) invokab
 
 Probably not operator ^
 
-DEC24: operator | has precedense in views? Pipe lhs value into rhs function?
-
 You cannot template on function pointers (They have no value yet in a constantly evaluated context!) but you can template on *invokable types* and those can then, in turn, call the function you want (though, again, not templated so maybe it'll be ugly and, frankly, worthless? The point of extension methods is to make things elegant - though: Elegant *at the call site*, it's allowed to be ugly to write them! Better if it's elegant, of course, so do take a look at that, but start by finding out if it is even possible.)
 
 This compiles and the asserts don't fire:
+
+## Additions:
+
+### DEC24
+
+operator `|` has use in views - pipe lhs value into rhs function maybe?
+
+### DEC24-2
+
+But what kind of associatity does it have?
+
+
+
+```c++
+struct A;
+struct B;
+
+auto f(A& this) -> B;
+auto g(B& this) -> int
+
+A a = getA();
+int c = a | Do(f) | Do(g);
+```
+
+Will this compile? Is the precedense right here? ... do I even care if I have to use "Do" to make it happen?
+
+
+# Some compiled examples
 
 https://godbolt.org/z/eTWfK6bqo
 
