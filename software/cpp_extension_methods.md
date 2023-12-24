@@ -7,6 +7,8 @@ Use operator overload shenanigans to make a function carrier (Monad...?) invokab
 
 Probably not operator ^
 
+DEC24: operator | has precedense in views? Pipe lhs value into rhs function?
+
 You cannot template on function pointers (They have no value yet in a constantly evaluated context!) but you can template on *invokable types* and those can then, in turn, call the function you want (though, again, not templated so maybe it'll be ugly and, frankly, worthless? The point of extension methods is to make things elegant - though: Elegant *at the call site*, it's allowed to be ugly to write them! Better if it's elegant, of course, so do take a look at that, but start by finding out if it is even possible.)
 
 This compiles and the asserts don't fire:
