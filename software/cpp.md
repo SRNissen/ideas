@@ -12,6 +12,8 @@ Same as 2x ^prev^ but with arbitrary types and arbitrary constraints
 
 EDIT: Intel has a library for something like this
 
+https://www.youtube.com/watch?v=ua5esZZdpYY
+
 # non_unique_ptr<T>
 
 Essentially like a std::vector that only has space for 1 object - a wrapper for a heap object that's like unique_ptr but copyable (copies the underlying object)
