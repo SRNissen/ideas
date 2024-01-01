@@ -10,6 +10,8 @@ Same as ^prev, with custom upper/lower bound
 
 Same as 2x ^prev^ but with arbitrary types and arbitrary constraints
 
+EDIT: Intel has a library for something like this
+
 # non_unique_ptr<T>
 
 Essentially like a std::vector that only has space for 1 object - a wrapper for a heap object that's like unique_ptr but copyable (copies the underlying object)
@@ -17,6 +19,8 @@ Essentially like a std::vector that only has space for 1 object - a wrapper for 
 Sometimes I want explicit ownership semantic of heap objects but I'm not looking to disable copies.
 
 Unlike unique_ptr, I feel no need to have an array version - if you need explicit ownership of a heap allocated array of T without move-only semantics, *use vector<T>*, or have `non_unique_ptr<std::array<T>>` if you don't need dynamic sizing;
+
+EDIT: 
 
 # Mutable<T>
 
@@ -102,6 +106,24 @@ bool IsIntegralEven(double a)
 
 Or *something* like that. Expanded upon in [another file](cpp_extension_methods.md)
 
-# AsBytes
+# ToBytes
 
-function that takes *any* object by const reference returning an array of bytes exactly equal to those of the object.
+function that takes *any* object by const reference returning by-value an array of bytes exactly equal to those of the object.
+
+# Error handling
+
+## Exceptions
+
+CppCon - Peter Muldoon - "Exceptionally Bad: [...]"
+
+Key takeaway is the exception class at the end (though in your own implementation *do* inherit from std::exception yeah?)
+
+https://youtu.be/Oy-VTqz1_58?si=HCWZyWdEYnI9LxuV&t=3381
+
+## Errors
+
+Zig + customizable error message seems like the *very* best of the world, is that possible in C++? Probably not, due to the "try" keyword? ...could you macro that? You give the object some horrible function that has to be called, then make the macro call it and return on error.
+
+# RAII Type
+
+You could make some `snns::Defer` template (RAII Type! No default constructor! Important!) that takes a function and some number of arguments (by address? probably?) to it, then executes that function on destruction.
