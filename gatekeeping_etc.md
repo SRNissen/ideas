@@ -1,1 +1,1 @@
-dentist, orthopaedic surgeon, articles and videos
+aalborg dentist, orthopaedic surgeon, articles and videos
