@@ -148,6 +148,7 @@ Here, `ghij` becomes `1785292903` - `g*256^3 + h*256^2 + i*256 + j` (or, again, 
 Four characters, four bytes - and luckily the CPU has a `mov dword` command, where `dword` is "2 words," or "2*2 bytes," so we can do it in 1 instruction.
 
 >  **Example with 8 bytes**
+> 
 >     buffer[512] = 'k';
 >     buffer[513] = 'l';
 >     buffer[514] = 'm';
@@ -166,6 +167,7 @@ Once again, the compiler has calcuated which 8-byte integer means the same as `k
 For some reason, it doesn't just do `mov qword ptr [rax + 512], 8246496016588434539`, I think it has something to do with signed/unsigned integer values but I'm not sure what's actually going on here.
 
 > **Example with 4 bytes with 1-byte padding in between**
+> 
 >     buffer[1024] = 's';
 >     // skip 1025
 >     buffer[1026] = 't';
